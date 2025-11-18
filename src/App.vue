@@ -1,12 +1,32 @@
 <script setup>
-import { reactive, ref } from 'vue';
+import { reactive } from 'vue';
 
-/* const estado = reactive({
+const estado = reactive({
   primeiroNumero: '',
   segundoNumero: '',
-}) */
+  operacao: '-',
+})
 
-const primeiroNumero = ref('');
+function calculaResultado() {
+  const { primeiroNumero, segundoNumero, operacao } = estado;
+
+  switch (operacao) {
+    case 'somar':
+      return parseFloat(primeiroNumero) + parseFloat(segundoNumero);
+    case 'subtrair':
+      return primeiroNumero - segundoNumero;
+    case 'multiplicar':
+      return primeiroNumero * segundoNumero;
+    case 'dividir':
+      if (segundoNumero == 0) {
+        return 'Não é possível dividir o número por Zero'
+      } else {
+        return primeiroNumero / segundoNumero;
+      }
+    default:
+      return 'Selecione uma das operações';
+  }
+}
 </script>
 
 <template>
@@ -28,29 +48,28 @@ const primeiroNumero = ref('');
     <div class="container">
       <form class="mt-5">
         <label class="form-label fw-semibold">Primeiro Número:</label>
-        <input type="number" placeholder="Digite o primeiro número" class="form-control" v-model="primeiroNumero">
+        <input type="number" placeholder="Digite o primeiro número" class="form-control" @keyup="evento => estado.primeiroNumero = evento.target.value">
         <label class="form-label mt-3 fw-semibold">Operação:</label>
-        <select name="" id="" placeholder="Selecione uma operação" class="form-control">
+        <select placeholder="Selecione uma operação" class="form-control" @change="evento => estado.operacao = evento.target.value">
           <option selected>Selecione uma operação</option>
-          <option value="1">Adição (+)</option>
-          <option value="2">Subtração (-)</option>
-          <option value="3">Multiplicação (x)</option>
-          <option value="4">Divisão (/)</option>
+          <option value="somar">Adição (+)</option>
+          <option value="subtrair">Subtração (-)</option>
+          <option value="multiplicar">Multiplicação (x)</option>
+          <option value="dividir">Divisão (/)</option>
         </select>
         <label class="form-label mt-3 fw-semibold">Segundo Número:</label>
-        <input type="number" placeholder="Digite o segundo número" class="form-control">
+        <input type="number" placeholder="Digite o segundo número" class="form-control" @keyup="evento => estado.segundoNumero = evento.target.value">
         <div class="row mt-4">
-          <div class="col-9">
-            <button type="button" class="form-control btn-calcular">Calcular</button>
-          </div>
           <div class="col">
-            <button type="reset" class="form-control text-bg-light">Limpar</button>
+            <button type="reset" class="form-control text-bg-light btn-resetar">Limpar</button>
           </div>
         </div>
-        <div class="mt-3">
-        <p class="fw-semibold">Resultado da operação:</p>
-        <i>{{ primeiroNumero }}</i>
-      </div>
+        <div class="mt-4 text-center">
+          <h4 class="fw-semibold">Resultado da operação:</h4>
+          <div class="container mt-4">
+            <p>{{ calculaResultado() }}</p>
+          </div>
+        </div>
       </form>
     </div>
   </div>
@@ -80,7 +99,7 @@ header i {
   width: 30px;
 }
 
-.btn-calcular {
+.btn-resetar {
   background-image: linear-gradient(to right, rgb(68, 68, 237), purple);
   color: #fff;
 }
