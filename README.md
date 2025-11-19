@@ -24,12 +24,3 @@ https://calculadora-vue-4nv8.vercel.app/
 
 ## Demonstração
 <img width="1283" height="639" alt="image" src="https://github.com/user-attachments/assets/ffc20d3a-4422-4880-86ab-b58f2a04853b" />
-
-
-
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
