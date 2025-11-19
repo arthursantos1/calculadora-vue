@@ -1,7 +1,7 @@
 <script setup>
 import { reactive } from 'vue';
-import Header from './components/header.vue';
-import Body from './components/body.vue';
+import Header from './components/Header.vue';
+import Body from './components/Body.vue';
 
 const estado = reactive({
   primeiroNumero: '',
