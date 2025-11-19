@@ -1,35 +1,32 @@
-# calculador-aritmetica
+# Calculador Aritmetica com Vue
 
-This template should help get you started developing with Vue 3 in Vite.
+Foi desenvolvido utilizando Vue uma calculadora que realizar operações aritmetica tais como (Soma, Subtração, Multiplicação e Divisão)
 
-## Recommended IDE Setup
+## Link para o site
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+https://calculadora-vue-4nv8.vercel.app/
 
-## Recommended Browser Setup
+## Funcionalidades
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+- Entrada de números:
+  - Dois campos para inserir os operandos
+- Seleção de Operação:
+  - Com um menu do tipo select para escolher a operação aritmética (soma, subtração, divisão, multiplicação).
+  - Cálculo em Tempo Real: O resultado é atualizado instantaneamente à medida que os números ou a operação são alterados
+  - Validação de erros: Tratamento para operações invalidas 
 
-## Customize configuration
+## Tecnologias Utilizadas
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+* Vue Js: Framework Javascript progressivo para construção da interface do usuário
+* Javascript: Lógica de programação da calculadora
+* HTML: Estruturação da página
+* Bootstrap: FrameWork CSS para estilização e responsividade
 
-## Project Setup
+## Demonstração
+<img width="1283" height="639" alt="image" src="https://github.com/user-attachments/assets/ffc20d3a-4422-4880-86ab-b58f2a04853b" />
 
-```sh
-npm install
-```
 
-### Compile and Hot-Reload for Development
 
-```sh
-npm run dev
-```
 
 ### Compile and Minify for Production
 
